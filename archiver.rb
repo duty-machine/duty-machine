@@ -20,13 +20,13 @@ end
 
 def run token, repo
   client = Octokit::Client.new(access_token: token)
-  client.list_issues(repo, state: 'open').each do |issue|
+  client.list_issues(repo, state: 'open', labels: 'archive').each do |issue|
     begin
       number = issue[:number]
       title = issue[:title]
       body = issue[:body]
 
-      if title == 'request_index'
+      if title == 'archive_request'
         article_title, article_author, article_content = article_data(body)
         client.add_comment(repo, number, "#{article_title} by #{article_author}\n------\n#{article_content}")
         client.update_issue(repo, number, title: article_title, labels: ['fetched'])
