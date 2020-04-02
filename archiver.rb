@@ -3,6 +3,35 @@ require 'octokit'
 require 'uri'
 require 'net/http'
 
+WEBSITES = []
+
+def register_website config
+  WEBSITES << config
+end
+
+Dir["#{__dir__}/websites/*.rb"].each{|path| require path}
+
+def fetch_article url
+  uri = URI(url)
+  if website = WEBSITES.find{|x| x[:test].(uri) }
+    process = website[:process]
+  else
+    process = -> (document) {
+      article = document.css('article').first
+      title = document.css('title').first.content
+
+      {
+        title: title,
+        author: nil,
+        content: article.to_html
+      }
+    }
+  end
+  html = Net::HTTP.get(uri)
+  document = Nokogiri::HTML(html)
+  process.(document)
+end
+
 def article_data url
   uri = URI(url)
   raise unless uri.hostname == 'matters.news'
@@ -20,16 +49,16 @@ end
 
 def run token, repo
   client = Octokit::Client.new(access_token: token)
-  client.list_issues(repo, state: 'open', labels: 'archive').each do |issue|
+  client.list_issues(repo, state: 'open').each do |issue|
     begin
       number = issue[:number]
       title = issue[:title]
       body = issue[:body]
 
       if title == 'archive_request'
-        article_title, article_author, article_content = article_data(body)
-        client.add_comment(repo, number, "#{article_title} by #{article_author}\n------\n#{article_content}")
-        client.update_issue(repo, number, title: article_title, labels: ['fetched'])
+        article = fetch_article(body)
+        client.add_comment(repo, number, "#{article[:title]} by #{article[:author]}\n------\n#{article[:content]}")
+        client.update_issue(repo, number, title: article[:title], labels: ['fetched'])
       else
         raise 'invalid request'
       end

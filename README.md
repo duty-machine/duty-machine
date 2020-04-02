@@ -6,3 +6,6 @@
 3. 使用 https://duty-machine-panel.herokuapp.com 进行提交，初次使用可能需要等一段时间。
 
 提交完成后等待一分钟左右即可抓取完毕，也可以在actions中查看实时进度，如有问题可以使用`bug`标签提交issue。
+
+## 问题反馈及建议
+请到这个仓库发送issue： https://github.com/duty-machine/discuss 。
