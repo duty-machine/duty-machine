@@ -10,11 +10,12 @@ def article_data url
   html = Net::HTTP.get(uri)
   document = Nokogiri::HTML(html)
   title = document.css('h1.article').first.content
+  author = document.css('a.name').first.content
   content = document.css('div.u-content').first
   content.traverse{|x| x.remove_class}
   content = content.to_html
 
-  [title, content]
+  [title, author, content]
 end
 
 def run token, repo
@@ -26,8 +27,8 @@ def run token, repo
       body = issue[:body]
 
       if title == 'request_index'
-        article_title, article_content = article_data(body)
-        client.add_comment(repo, number, "#{article_title}\n------\n#{article_content}")
+        article_title, article_author, article_content = article_data(body)
+        client.add_comment(repo, number, "#{article_title} by #{article_author}\n------\n#{article_content}")
         client.update_issue(repo, number, title: article_title, labels: ['fetched'])
       else
         raise 'invalid request'
