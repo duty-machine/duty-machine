@@ -8,6 +8,8 @@
 * chinadigitaltimes.net
 * mp.weixin.qq.com
 
+已抓取的文章可见 https://github.com/duty-machine/archives/issues?q=label%3Afetched+is%3Aclosed .
+
 ## 使用方法
 有三种方式：
 1. 直接在本仓库新建一个issue，使用`请求抓取`模板，并在内容中写入要抓取的网址。
