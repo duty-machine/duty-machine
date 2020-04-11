@@ -28,23 +28,14 @@ def fetch_article url
     }
   end
   html = Net::HTTP.get(uri)
+=begin
+  get = Net::HTTP::Get.new(uri)
+  res = Net::HTTP.start(uri.hostname, uri.port, {use_ssl: uri.scheme == 'https'}) { |http|
+    http.request_get(uri, 'User-Agent' => "Mozilla/5.0 (iPhone; CPU iPhone OS 12_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/12.0 Mobile/15A372 Safari/604.1")
+  }
+=end
   document = Nokogiri::HTML(html)
   process.(document)
-end
-
-def article_data url
-  uri = URI(url)
-  raise unless uri.hostname == 'matters.news'
-  raise unless uri.path.match /\/@.+?\/.+?$/
-  html = Net::HTTP.get(uri)
-  document = Nokogiri::HTML(html)
-  title = document.css('h1.article').first.content
-  author = document.css('a.name').first.content
-  content = document.css('div.u-content').first
-  content.traverse{|x| x.remove_class}
-  content = content.to_html
-
-  [title, author, content]
 end
 
 def run token, repo
