@@ -11,7 +11,7 @@ register_website(
     {
       title: title,
       author: author,
-      content: content.to_html
+      content: content.to_html.lines.map(&:strip).join
     }
   }
 )
