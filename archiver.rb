@@ -17,13 +17,13 @@ def fetch_article url
     process = website[:process]
   else
     process = -> (document) {
-      article = document.css('article').first
+      article = document.css('article').first || document.css('main').first
       title = document.css('title').first.content
 
       {
         title: title,
         author: nil,
-        content: article.to_html
+        content: article.to_html.lines.map(&:strip).join
       }
     }
   end
