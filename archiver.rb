@@ -12,7 +12,11 @@ end
 Dir["#{__dir__}/websites/*.rb"].each{|path| require path}
 
 def fetch_article url
-  uri = URI(url)
+  begin
+    uri = URI(url)
+  rescue URI::InvalidURIError
+    uri = URI(URI.escape(url))
+  end
   if website = WEBSITES.find{|x| x[:test].(uri) }
     process = website[:process]
   else
