@@ -2,6 +2,8 @@
 
 这是一个使用github issue为网路上的文章存档的工具，可以将文章转为issue进行持久保存。文章的抓取使用github actions实现。
 
+请使用 https://duty-machine-panel.herokuapp.com 匿名提交想要抓取的页面。
+
 目前已进行适配的网站，其他网站会尝试抓取`<article>`标签内容：
 * matters.news
 * telegra.ph
