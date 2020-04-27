@@ -1,8 +1,8 @@
 ## 简介
 
-这是一个使用github issue为网路上的文章存档的工具，可以将文章转为issue进行持久保存。文章的抓取使用github actions实现。
+这是一个使用github issue为网路上的文章存档的工具，可以将文章转为issue进行持久保存。文章的抓取使用github actions实现。抓取效果见https://github.com/duty-machine/archives/issues?q=label%3Afetched+is%3Aclosed 。
 
-请使用 https://archives.duty-machine.now.sh/ 匿名提交想要抓取的页面。此网页由 https://vercel.com 托管，部署记录已公开，在最新的commit下可看到 now 机器人提供的部署信息。在 https://vercel.com/duty-machine/archives/版本号 可检查当前版本源码。
+请使用 https://archives.duty-machine.now.sh/ 匿名提交想要抓取的页面。此网页由 https://vercel.com 托管，部署记录已公开，在最新的commit下可看到now机器人提供的部署信息。在 https://vercel.com/duty-machine/archives/版本号 可检查当前版本源码。
 
 提交完成后等待数分钟即可完成抓取，也可以在actions中查看实时进度。
 
@@ -11,8 +11,6 @@
 * telegra.ph
 * chinadigitaltimes.net
 * mp.weixin.qq.com
-
-已抓取的文章可见 https://github.com/duty-machine/archives/issues?q=label%3Afetched+is%3Aclosed .
 
 ## fork指南
 
