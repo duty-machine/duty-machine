@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <p>请在此处键入需要爬取的文章的网址。</p>
+    <p>提交后将会跳转到抓取后的文章地址。抓取过程需要数分钟，请耐心等候。</p>
+    <form action="/api/submit" method="post">
+      <div><textarea name="url" style="width: 100%; max-width: 600px; height: 100px;" placeholder="https://matters.news/..."></textarea></div>
+      <div><input type="submit" value="提交"/></div>
+    </form>
+  </body>
+</html>
