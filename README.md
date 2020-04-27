@@ -2,7 +2,7 @@
 
 这是一个使用github issue为网路上的文章存档的工具，可以将文章转为issue进行持久保存。文章的抓取使用github actions实现。
 
-请使用 https://duty-machine-panel.herokuapp.com 匿名提交想要抓取的页面。
+请使用 https://form.duty-machine.now.sh/ 匿名提交想要抓取的页面，此网页运行的代码开源于 https://github.com/duty-machine/form ，并可于vercel.com检查正在运行的版本。
 
 目前已进行适配的网站，其他网站会尝试抓取`<article>`标签内容：
 * matters.news
@@ -16,7 +16,7 @@
 有三种方式：
 1. 直接在本仓库新建一个issue，使用`请求抓取`模板，并在内容中写入要抓取的网址。
 2. fork到自己仓库，在设置里打开issue功能，并启用github actions，然后按上述新建issue。
-3. 使用 https://duty-machine-panel.herokuapp.com 进行提交，可匿名进行。
+3. 使用 https://form.duty-machine.now.sh/ 进行提交，可匿名进行。
 
 提交完成后等待数分钟即可完成抓取，也可以在actions中查看实时进度。
 
