@@ -4,6 +4,8 @@
 
 请使用 https://archives.duty-machine.now.sh/ 匿名提交想要抓取的页面。此网页由 https://vercel.com 托管，部署记录已公开，在最新的commit下可看到 now 机器人提供的部署信息。在 https://vercel.com/duty-machine/archives/版本号 可检查当前版本源码。
 
+提交完成后等待数分钟即可完成抓取，也可以在actions中查看实时进度。
+
 目前已进行适配的网站，其他网站会尝试抓取`<article>`标签内容：
 * matters.news
 * telegra.ph
@@ -12,13 +14,19 @@
 
 已抓取的文章可见 https://github.com/duty-machine/archives/issues?q=label%3Afetched+is%3Aclosed .
 
-## 使用方法
-有三种方式：
-1. 直接在本仓库新建一个issue，使用`请求抓取`模板，并在内容中写入要抓取的网址。
-2. fork到自己仓库，在设置里打开issue功能，并启用github actions，然后按上述新建issue。
-3. 使用 https://archives.duty-machine.now.sh/ 进行提交，可匿名进行。
+## fork指南
 
-提交完成后等待数分钟即可完成抓取，也可以在actions中查看实时进度。
+此项目可以fork到自己仓库使用，以下是操作步骤：
+1. fork
+2. 启用Issues功能。在项目的Settings - Features下勾选Issues并保存。
+3. 启用Github Action功能。在Actions标签卡下按提示操作。
+4. 在 https://vercel.com/ 注册账号，并添加一个github integration。
+5. 在vercel的配置里添加两个环境变量：
+```
+TOKEN: 你的github api token，需要有repo权限。
+REPO: fork后的repo名，格式如 'duty-machine/archives'。
+```
+6. 在vercel的build histories里点击redeploy，使配置的环境变量生效。
 
 ## 问题反馈及建议
 请到这个仓库发送issue： https://github.com/duty-machine/discuss 。
