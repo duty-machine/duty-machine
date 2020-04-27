@@ -31,6 +31,9 @@ def fetch_article url
       }
     }
   end
+  if website[:process_uri]
+    uri = website[:process_uri].(uri)
+  end
   html = Net::HTTP.get(uri)
 =begin
   get = Net::HTTP::Get.new(uri)
