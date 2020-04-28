@@ -7,6 +7,7 @@ register_website(
   process: -> (html) {
     document = Nokogiri::HTML(html)
     title = document.css('h1.info__headline.headline').first.content.strip
+    subheadline = document.css('.info__subHeadline').first.to_html
     author = document.css('.main-info__name a').first.content
     apollo = document.css('script').find{|x| x.content.start_with?('window.__APOLLO_STATE__=') }.content
     data = apollo.split('\"more-on-this\"')
@@ -49,6 +50,7 @@ register_website(
       end
     }
     content = recur.(arr)
+    content = "#{subheadline}#{content}"
 
     {
       title: title,

@@ -8,11 +8,17 @@ register_website(
     document = Nokogiri::HTML(html)
     title = document.css('#bodyContent h1').first.content
     author = ''
-    content = document.css('#bodyContent').first
+    content = document.css('#bodyContent .longText').first
 
-    content.css('h1').first.remove
-    content.css('.artikel').first.remove
-    content.css('#sharing-bar').first.remove
+    content.css('.picBox').each do |el|
+      if el.css('a').first
+        img = el.css('img').first
+        el.css('a').first.replace(img)
+      else
+      end
+    end
+
+    content.css('script').each(&:remove)
 
     {
       title: title,
