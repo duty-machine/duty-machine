@@ -18,3 +18,6 @@ p fetch_article('https://www.weibo.com/ttarticle/p/show?id=230940444370234808742
 
 # zhihu_zhuanlan
 p fetch_article('https://zhuanlan.zhihu.com/p/115765034')
+
+# default article
+p fetch_article('http://www.rfi.fr/cn/%E4%B8%AD%E5%9B%BD/20200426-%E7%96%91%E5%9B%A0%E5%A4%87%E4%BB%BD%E9%81%AD%E5%88%A0%E9%99%A4%E6%96%B0%E5%86%A0%E7%96%AB%E6%83%85%E6%8A%A5%E9%81%93-%E5%8C%97%E4%BA%AC3%E5%90%8D90%E5%90%8E2%E4%BA%BA%E9%81%AD%E6%8B%98%E6%8A%BC1%E4%BA%BA%E5%A4%B1%E8%81%94')
