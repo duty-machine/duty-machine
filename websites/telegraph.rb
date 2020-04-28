@@ -4,7 +4,8 @@ register_website(
   test: -> (uri) {
     uri.hostname == 'telegra.ph'
   },
-  process: -> (document) {
+  process: -> (html) {
+    document = Nokogiri::HTML(html)
     title = document.css('header h1').first.content
     author = document.css('header a[rel=author]').first.content
     content = document.css('article').first

@@ -2,11 +2,21 @@ require 'nokogiri'
 require 'octokit'
 require 'uri'
 require 'net/http'
+require 'cgi'
+require 'json'
 
 WEBSITES = []
 
 def register_website config
   WEBSITES << config
+end
+
+def get_with_headers uri, headers
+  get = Net::HTTP::Get.new(uri)
+  res = Net::HTTP.start(uri.hostname, uri.port, {use_ssl: uri.scheme == 'https'}) { |http|
+    http.request_get(uri, headers)
+  }
+  res.body
 end
 
 Dir["#{__dir__}/websites/*.rb"].each{|path| require path}
@@ -17,32 +27,16 @@ def fetch_article url
   rescue URI::InvalidURIError
     uri = URI(URI.escape(url))
   end
-  if website = WEBSITES.find{|x| x[:test].(uri) }
-    process = website[:process]
-  else
-    process = -> (document) {
-      article = document.css('article').first || document.css('main').first
-      title = document.css('title').first.content
 
-      {
-        title: title,
-        author: nil,
-        content: article.to_html.lines.map(&:strip).join
-      }
-    }
-  end
-  if website[:process_uri]
-    uri = website[:process_uri].(uri)
-  end
-  html = Net::HTTP.get(uri)
-=begin
-  get = Net::HTTP::Get.new(uri)
-  res = Net::HTTP.start(uri.hostname, uri.port, {use_ssl: uri.scheme == 'https'}) { |http|
-    http.request_get(uri, 'User-Agent' => "Mozilla/5.0 (iPhone; CPU iPhone OS 12_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/12.0 Mobile/15A372 Safari/604.1")
+  website = WEBSITES.find{|x| x[:test].(uri) } || WEBSITES.find{|x| x[:name] == 'default'}
+
+  request = website[:request] || ->(uri) {
+    get_with_headers(uri, {})
   }
-=end
-  document = Nokogiri::HTML(html)
-  process.(document)
+
+  process = website[:process]
+
+  process.(request.(uri))
 end
 
 def run token, repo

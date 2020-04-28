@@ -4,15 +4,18 @@ register_website(
   test: -> (uri) {
     uri.hostname == 'mp.weixin.qq.com'
   },
-  process_uri: ->(uri) {
-    if uri.scheme == 'https'
-      uri
-    else
-      uri.scheme = 'https'
-      URI(uri.to_s)
-    end
+  request: ->(uri) {
+    uri = if uri.scheme == 'https'
+            uri
+          else
+            uri.scheme = 'https'
+            URI(uri.to_s)
+          end
+
+    get_with_headers(uri, {})
   },
-  process: -> (document) {
+  process: -> (html) {
+    document = Nokogiri::HTML(html)
     title = document.css('#activity-name').first.content.strip
     author = document.css('#js_name').first.content.strip
     content = document.css('#js_content').first

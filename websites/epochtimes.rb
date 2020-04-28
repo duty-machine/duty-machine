@@ -3,7 +3,8 @@ register_website(
   test: -> (uri) {
     uri.hostname == 'www.epochtimes.com'
   },
-  process: -> (document) {
+  process: -> (html) {
+    document = Nokogiri::HTML(html)
     title = document.css('h1.title').first.content
     author = ''
     content = document.css('div#artbody').first

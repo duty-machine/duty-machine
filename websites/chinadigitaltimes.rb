@@ -3,7 +3,8 @@ register_website(
   test: -> (uri) {
     uri.hostname == 'chinadigitaltimes.net'
   },
-  process: -> (document) {
+  process: -> (html) {
+    document = Nokogiri::HTML(html)
     title = document.css('h1').first.content
     author = document.css('a[rel=author]').first.content
     content = document.css('div.post-content').first
