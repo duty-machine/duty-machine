@@ -13,6 +13,7 @@ register_website(
     content.css('.picBox').each do |el|
       if el.css('a').first
         img = el.css('img').first
+        img['src'] = "https://www.dw.com#{img['src']}"
         el.css('a').first.replace(img)
       else
       end
