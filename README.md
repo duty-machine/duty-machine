@@ -26,6 +26,8 @@
 
 如果你需要更高质量地保存微信文章，可以尝试[weixin-archive-action](https://github.com/duty-machine/weixin-archive-action)，它可以将微信文章按原样式保存为pdf和mht。
 
+在转载github.com的链接时，可以使用 https://git.io/ 短链接服务，以增加审查的难度。
+
 ### 我的联系方式
 
 请电邮 duty-machine@protonmail.com 。
