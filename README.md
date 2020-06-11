@@ -1,30 +1,15 @@
-## 简介
+### 这是什么？
 
-这是一个使用github issue为网路上的文章存档的工具，可以将文章转为issue进行持久保存。文章的抓取使用github actions实现。抓取效果见https://github.com/duty-machine/archives/issues?q=label%3Afetched+is%3Aclosed 。
+这是[duty-machine-action](https://github.com/duty-machine/duty-machine-action)的演示用仓库，也是一个公开的可以备份网络文章的服务。
 
-请使用 https://archives.duty-machine.now.sh/ 匿名提交想要抓取的页面。此网页由 https://vercel.com 托管，部署记录已公开，在最新的commit下可看到now机器人提供的部署信息。在 https://vercel.com/duty-machine/archives/版本号 可检查当前版本源码。
+抓取成功的样例可见：https://github.com/duty-machine/duty-machine/issues?q=label%3Afetched+is%3Aclosed 。
 
-提交完成后等待数分钟即可完成抓取，也可以在actions中查看实时进度。
+### 如何提交要抓取的页面？
 
-目前已进行适配的网站，其他网站会尝试抓取`<article>`标签内容：
-* matters.news
-* telegra.ph
-* chinadigitaltimes.net
-* mp.weixin.qq.com
+我们提供了一个在线的匿名提交入口：https://archives.duty-machine.now.sh/ ，提交后等待一分钟左右即可完成抓取。
 
-## fork指南
+这个入口的源码可以在 https://github.com/duty-machine/duty-machine-form 找到，同时正在运行的版本也可以在vercel网站上审查，以确保匿名性。
 
-此项目可以fork到自己仓库使用，以下是操作步骤：
-1. fork
-2. 启用Issues功能。在项目的Settings - Features下勾选Issues并保存。
-3. 启用Github Action功能。在Actions标签卡下按提示操作。
-4. 在 https://vercel.com/ 注册账号，并添加一个github integration。
-5. 在vercel的配置里添加两个环境变量：
-```
-TOKEN: 你的github api token，需要有repo权限。
-REPO: fork后的repo名，格式如 'duty-machine/archives'。
-```
-6. 在vercel的build histories里点击redeploy，使配置的环境变量生效。
+### 目前支持什么网站？
 
-## 问题反馈及建议
-请到这个仓库发送issue： https://github.com/duty-machine/discuss 。
+请参见[duty-machine-action](https://github.com/duty-machine/duty-machine-action)项目的README。
