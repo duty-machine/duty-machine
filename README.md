@@ -28,6 +28,12 @@
 
 在转载github.com的链接时，可以使用 https://git.io/ 短链接服务，以增加审查的难度。
 
+### 友情链接
+
+https://github.com/lestweforget/wuhan2019
+
+https://github.com/chinatimeline/chinatimeline.github.io
+
 ### 我的联系方式
 
 请电邮 duty-machine@protonmail.com 。
