@@ -1,28 +1,36 @@
 ### 这是什么？
 
-这是[duty-machine-action](https://github.com/duty-machine/duty-machine-action)的演示用仓库，也是一个公开的可以备份网络文章的服务。
+这是一个借助Github搭建的备份网络文章的服务。
 
-抓取成功的样例可见：https://github.com/duty-machine/duty-machine/issues?q=label%3Afetched+is%3Aclosed 。
+对于一个墙内平台（如微信）的作者，可以在这里获取一个不能被删除的链接，与原文同时推广，当原文被删除之后，备份链接还能使用。对于一个墙外平台（如matters）的作者，可以在这里获得一个不能被屏蔽的链接，向墙内分享。
 
 ### 如何提交要抓取的页面？
 
-我们提供了一个在线的匿名提交入口：https://archives.duty-machine.now.sh/ ，提交后等待一分钟左右即可完成抓取。
+我们提供了一个匿名的在线提交入口：https://archives.duty-machine.now.sh/ 。将网址粘贴到表单里点击提交，等待一分钟左右，机器人会把文章内容跟贴到当前网址里。
 
-这个入口的源码可以在 https://github.com/duty-machine/duty-machine-form 找到，同时正在运行的版本也可以在vercel网站上审查，以确保匿名性。
+同时你可以查看[所有已提交的文章抓取](https://github.com/duty-machine/duty-machine/issues?q=is%3Aclosed+is%3Aopen)，还有[已抓取成功的文章列表](https://github.com/duty-machine/duty-machine/issues?q=label%3Afetched+is%3Aclosed)。
 
 ### 目前支持什么网站？
 
-请参见[duty-machine-action](https://github.com/duty-machine/duty-machine-action)项目的README。
+当前支持的网站有：微信公众平台，微博文章，知乎专栏，豆瓣日记，豆瓣小组话题，matters，telegraph，chinadigitaltimes，rfa。
 
-### 这个项目的目的
+### 使用本服务有哪些风险？
+
+我们的提交入口是开源的，并且正在运行的源码可以接受监督，详见[duty-machine-form项目](https://github.com/duty-machine/duty-machine-form)，我们没有保存和泄露你的ip和提交信息。
+
+但是你的身份仍有可能泄露，理论上中国有能力监视墙内对提交入口域名的访问，如果他们知道你访问了这个域名，又在同时看到了新建的抓取请求，你的身份有可能就会被和抓取内容联系起来。尽管这样的风险不大，我们建议尽量开启vpn等代理访问提交入口和提交，以保证最大的匿名性。
+
+### 对端点星的声援
 
 这个项目是受[端点星计划](https://github.com/Terminus2049/Terminus2049.github.io)的启发而作，为的是可以在不登录github的情况下也可以备份网络文章，满足普通用户的备份需求。
 
-而恰好在本项目刚刚诞生之际，得知了端点星计划志愿者陈玫、蔡伟及其女友小唐被当局关押的消息，使我觉得我有义务为他们呼唤关注。[【端点星事件】陈玫、蔡伟被指定居所监视居住第36天](https://github.com/duty-machine/duty-machine/issues/162)，陈、蔡二人至今未被释放。
+而恰好在本项目刚刚诞生之际，得知了端点星计划志愿者陈玫、蔡伟及其女友小唐被当局关押的消息，使我觉得我有义务为他们呼唤关注。[陈玫、蔡伟被秘密关押54天后被以寻衅滋事罪逮捕](https://github.com/duty-machine/duty-machine/issues/223)。
 
-这个项目没有什么特别的目的，只是世界上有一些我们必须去保存的"不正确"的记忆。我们必须要为记忆而奋斗。
+我们依照《中华人民共和国宪法》第三十五条：“中华人民共和国公民有言论、出版、集会、结社、游行、示威的自由。”，敦促当局立即停止违反宪法，侵犯公民自由的行为。
 
 ### 其他
+
+本项目使用[duty-machine-action](https://github.com/duty-machine/duty-machine-action)搭建，你可以使用它搭建自己的版本。
 
 如果你需要更高质量地保存微信文章，可以尝试[weixin-archive-action](https://github.com/duty-machine/weixin-archive-action)，它可以将微信文章按原样式保存为jpg和mht。
 
@@ -30,9 +38,11 @@
 
 ### 友情链接
 
-https://github.com/lestweforget/wuhan2019
+武汉疫情报道备份项目：https://github.com/lestweforget/wuhan2019
 
-https://github.com/chinatimeline/chinatimeline.github.io
+以时间线的形式展示新冠肺炎疫情、香港反送中等社会议题：https://github.com/chinatimeline/chinatimeline.github.io
+
+抓取中国数字时代的最新文章：https://github.com/duty-machine/chinadigitaltimes-latest
 
 ### 我的联系方式
 
