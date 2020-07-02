@@ -14,6 +14,8 @@
 
 当前支持的网站有：微信公众平台，微博文章，知乎专栏，豆瓣日记，豆瓣小组话题，matters，telegraph，chinadigitaltimes，rfa。
 
+对于外媒文章，一般可以直接在 https://github.com/duty-machine/news 项目里找到，暂时没有考虑支持外媒新闻网站的抓取。
+
 ### 使用本服务有哪些风险？
 
 我们的提交入口是开源的，并且正在运行的源码可以接受监督，详见[duty-machine-form项目](https://github.com/duty-machine/duty-machine-form)，我们没有保存和泄露你的ip和提交信息。
@@ -42,7 +44,7 @@
 
 以时间线的形式展示新冠肺炎疫情、香港反送中等社会议题：https://github.com/chinatimeline/chinatimeline.github.io
 
-抓取中国数字时代的最新文章：https://github.com/duty-machine/chinadigitaltimes-latest
+免翻墙阅读外媒新闻：https://github.com/duty-machine/news
 
 ### 我的联系方式
 
