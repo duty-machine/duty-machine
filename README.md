@@ -38,6 +38,8 @@
 
 ### 友情链接
 
+公益社会类项目汇总： https://github.com/NodeBE4/impact/
+
 武汉疫情报道备份项目：https://github.com/lestweforget/wuhan2019
 
 以时间线的形式展示新冠肺炎疫情、香港反送中等社会议题：https://github.com/chinatimeline/chinatimeline.github.io
