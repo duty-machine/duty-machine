@@ -10,3 +10,4 @@ jobs:
         env:
           TOKEN: ${{ github.token }}
           REPOSITORY: ${{ github.repository }}
+          EVENT: ${{ toJson(github.event) }}
