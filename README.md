@@ -6,7 +6,7 @@
 
 ### 目前支持什么网站？
 
-当前支持的网站有：微信公众平台，微博和微博文章，知乎回答和专栏，豆瓣日记和小组话题，石墨文档，matters，telegraph，chinadigitaltimes，rfa。
+当前支持的网站有：微信公众平台，微博和微博文章，知乎回答和专栏，豆瓣日记和小组话题，石墨文档，bilibili专栏，acfun文章，ao3，matters，telegraph，chinadigitaltimes，rfa。
 
 对于外媒文章，一般可以直接在 https://github.com/duty-machine/news 项目里找到，暂时没有考虑支持外媒新闻网站的抓取。
 
